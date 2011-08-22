@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<!--If there is an image, I want to display it in thumbnail form-->
+<% if @photo.image? %>
+	<%= image_tag @photo.image.url(:small) %>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%= @photo.name %>
+</p>
+<p>
+  <b>Tags:</b>
+  <%= @photo.tag_list %>
+</p>
+
+<p>
+	<%= @photo.istock_number %>
+</p>
+
+<p><%= @photo.get_tags_from_istock %>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

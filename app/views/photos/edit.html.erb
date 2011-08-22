@@ -1,0 +1,13 @@
+
+<h1>Edit photo</h1>
+<%= image_tag @photo.image.url(:small) %>
+<%= render 'form' %>
+<br />
+<br />
+<%= @photo.get_tags_from_istock %>
+<br />
+<br />
+<%= link_to 'Show', @photo %> |
+<%= link_to 'Back', photos_path %>
+
+

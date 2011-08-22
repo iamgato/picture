@@ -1,0 +1,39 @@
+<div class="header">
+		<ul id="nav">
+			<li id="logo">
+				<%= link_to(image_tag("thinktiv_mark_RGB_white.png"), photos_path) %></li>
+			
+
+				<!--Search with sunspot_rails-->
+			<li>
+				<%= form_tag photos_path, :method => :get do %>
+				<p>
+					<%= text_field_tag :search, params[:search] %>
+					<%= submit_tag "Search", :name => nil %>
+				</p>
+				<% end %>
+			</li>	
+			
+	
+			<!--Search with meta_search
+			
+			<li>
+				<%#= form_for @search do |f| %>
+					<p>
+						<%#= f.multiparameter_field :name_contains_all,
+						        *5.times.inject([]) {|a, b| a << {:field_type => :text_field}} +
+						        [:size => 5] %>
+						<%#= f.submit "Search" %>	
+					</p>
+					
+				<%# end %>	
+			</li>-->
+			
+			<li class="filter"><%= select_tag(:image_content_type, options_for_select([['File Type', 1], ['.ai', 2], '.psd', 'zip'])) %></li>
+			<li class="filter"><%= select_tag(:image_content_type, options_for_select([['File Size', 1], ['small', 2], 'medium', 'large', 'x-large'])) %>
+			<li class="filter"><%= link_to 'Tag Cloud', tags_path %></li>	
+		</ul><!---nav-->
+	<div id ="dropbox">
+		<p>Drag Files here to<br/ >UPLOAD or <%= link_to 'select files', new_photo_path %></p>
+	<div><!---upload-->
+</div><!---header--> 

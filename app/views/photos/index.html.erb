@@ -1,0 +1,50 @@
+
+
+
+<div class="browse_images">
+	
+	<!--<h1>Thinktiv Image Assets</h1>-->
+	<%# @tags.each do |tag| %>
+	<%#= link_to tag.name.capitalize, tag_path(tag) %>
+	<%# end %>
+	
+	<div class="imagePreview">
+		<ul class="gallery">
+			<% @photos.each do |photo| %>
+			<!--<li><%#= photo.tag_list %></li>-->
+			
+			<!--Use this to click on the photo and edit a photo-->
+			<!--<li><a><%#=link_to(image_tag(photo.image.url(:thumb)), edit_photo_path(photo)) %></a></li>-->
+		<!--<li><%#= photo.tag_list %></li>-->
+			<li>
+				<p id="thumbnail">
+					<a class= "preview" href="<%= image_path(photo.image.url(:small)) %>" title="<%= photo.name %>"> <%= image_tag(photo.image.url(:thumb)) %></a>
+				</p>
+				<p id="download">
+					<a class="original" href="<%= photo.image.url(:original, false) %>"> Download</a>  <%= link_to 'Edit', edit_photo_path(photo) %>
+				</p>
+			
+			</li>
+
+
+			<!--Download a file to attachment
+			<li><%#= link_to "Download", download %></li>-->
+
+			<!--Download a file in the browser-->
+			<!--<li id="text"><%#= link_to "Download", photo.image.url(:original, false) %></li>-->
+			
+			
+			<% end %>
+		</ul><!---gallery of images-->
+		<span></span>
+		<%= will_paginate @photos %>
+	</div>
+	
+	
+</div>
+
+<%#= link_to 'Destroy', photo,
+			:confirm => 'Are you sure?',
+			:method => :delete %>
+			
+			

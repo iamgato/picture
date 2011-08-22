@@ -1,0 +1,2 @@
+module IstocksHelper
+end
